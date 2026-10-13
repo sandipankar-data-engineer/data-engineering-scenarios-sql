@@ -11,16 +11,13 @@ Link: https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-tra
 
 -- Create Database --
 CREATE DATABASE retailStore; -- This statement is used to create a simple database.
-
 CREATE DATABASE retailStoreLATIN_1 -- Create database with Windows Latin-1 collation (Code Page 1252)
 COLLATE Latin1_General_100_CI_AS;
 
 
 -- Show Databases in SQL Server --
 SELECT *  FROM sys.databases; -- Provides info of all the databases available in the server
-
 EXEC sp_databases; -- System stored procedure to list all the databases
-
 SELECT name, database_id FROM sys.databases WHERE database_id > 4; -- List all user created databases
 
 
@@ -29,6 +26,7 @@ USE retailStore; -- USE statement is used to change the database context
 
 
 -- Drop Database --
+USE master;
 DROP DATABASE retailStoreLATIN_1; -- DROP DATABASE statement is used to drop a particular database. To delete multiple databases you can use DROP DATABASE database1, database2, ...; 
 
 
@@ -42,4 +40,10 @@ WITH FORMAT, -- ensures that the backup file is initialized and any existing bac
 MEDIANAME = 'retailStoreLATIN_1Backup', -- label for the backup media
 NAME = 'Full Backup of retailStoreLATIN_1'; -- descriptive name for the backup set
 GO
+-- Restore backup
+RESTORE DATABASE retailStoreLATIN_1
+FROM DISK = 'D:\INSTALLER\DB BACKUP\retailStoreLATIN_1.bak'
+WITH REPLACE; -- Overwrites the existing GeekDB database if it already exists
+
+----------------- Table level queries -----------------
 
