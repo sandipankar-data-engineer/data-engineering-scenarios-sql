@@ -32,3 +32,14 @@ USE retailStore; -- USE statement is used to change the database context
 DROP DATABASE retailStoreLATIN_1; -- DROP DATABASE statement is used to drop a particular database. To delete multiple databases you can use DROP DATABASE database1, database2, ...; 
 
 
+-- Database backup --
+-- This statement is used to create a full backup a particular database to a disk
+USE retailStoreLATIN_1;
+GO
+BACKUP DATABASE retailStoreLATIN_1
+TO DISK = 'D:\INSTALLER\DB BACKUP\retailStoreLATIN_1.bak' -- backup file will be created in this particular location
+WITH FORMAT, -- ensures that the backup file is initialized and any existing backup on the disk is overwritten.
+MEDIANAME = 'retailStoreLATIN_1Backup', -- label for the backup media
+NAME = 'Full Backup of retailStoreLATIN_1'; -- descriptive name for the backup set
+GO
+
