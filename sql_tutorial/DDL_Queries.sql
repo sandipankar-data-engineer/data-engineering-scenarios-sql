@@ -27,8 +27,8 @@ SELECT name, database_id FROM sys.databases WHERE database_id > 4; -- List all u
 -- Use Database --
 USE retailStore; -- USE statement is used to change the database context
 
+
 -- Drop Database --
-USE retailStoreLATIN_1;
-DROP DATABASE retailStoreLATIN_1; -- DROP DATABASE statement is used to drop a particular database
+DROP DATABASE retailStoreLATIN_1; -- DROP DATABASE statement is used to drop a particular database. To delete multiple databases you can use DROP DATABASE database1, database2, ...; 
 
 
